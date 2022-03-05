@@ -9,6 +9,7 @@
             "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
         ],
         "stock": 5,
+        "size": "M",
         "categories": ["sport","modern"]
     },
 
@@ -22,6 +23,7 @@
             "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
         ],
         "stock": 3,
+        "size": "M",
         "categories": ["sport","modern"]
     },
 
@@ -35,6 +37,7 @@
             "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
         ],
         "stock": 7,
+        "size": "M",
         "categories": ["sport","modern"]
     }
 ]
