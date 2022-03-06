@@ -17,7 +17,7 @@
         "id": 2,
         "title": "Product 2",
         "description": "Product 2 description",
-        "price": 8.5,
+        "price": 12.5,
         "images": [
             "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
             "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
