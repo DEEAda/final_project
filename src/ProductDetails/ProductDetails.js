@@ -11,6 +11,43 @@ function ProductDetails() {
             Not Found!
         </div>
     }
+
+    const addToCart = () => {
+        const cartData = localStorage.getItem("cartKey");
+
+        if (!cartData && currentProduct.stock > 0) {
+            const cart = [{
+                productId,
+                quantity: 1
+            },
+            ];
+
+            localStorage.setItem('cartKey', JSON.stringify(cart));
+
+        } else {
+            const cart = JSON.parse(cartData);
+
+            const currentCartItem = cart.find(
+                (cartItem) => cartItem.productId === productId
+            );
+
+
+            if (currentCartItem && currentProduct.stock > currentCartItem.quantity) {
+                currentCartItem.quantity++;
+            } else if (!currentCartItem && currentProduct.stock > 0) {
+                cart.push({
+                    productId,
+                    quantity: 1,
+                });
+            }
+
+            console.log(cart);
+            localStorage.setItem('cartKey', JSON.stringify(cart));
+        }
+
+
+    };
+
     return (
         <div>
             <h1>
@@ -37,6 +74,10 @@ function ProductDetails() {
             <p>
                 Categories: {currentProduct.categories.join(", ")}
             </p>
+
+            <button onClick={addToCart}>
+                Add to cart
+            </button>
 
 
         </div>
