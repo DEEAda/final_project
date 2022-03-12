@@ -57,35 +57,52 @@ function Cart() {
         <div>
             <h1>Cart</h1>
 
+            <div className="row fw-bold" >
+                <div className="col-1">Image</div>
+                <div className="col-3">Title</div>
+                <div className="col-3">Quantity</div>
+                <div className="col-3">Total price</div>
+                <div className="col-2"></div>
+            </div>
+
+
             {cart.map((cartItem) => (
-                <div key={cartItem.productId}>
-                    <img src={getProduct(cartItem.productId).images[0]}
-                        width="50px"
-                        alt="product" />
-                    <small>
+                <div key={cartItem.productId} className="row align-items-center my-2">
+                    <img
+                        src={getProduct(cartItem.productId).images[0]}
+                        alt="product"
+                        className="col-1" />
+                    <small className="col-3 fs-3">
                         {getProduct(cartItem.productId).title}
-                    </small> {"   "}
-                    <small>
+                    </small>
+                    <small className="col-3 fs-3">
                         <input type="number"
                             defaultValue={cartItem.quantity}
                             min={1}
                             max={getProduct(cartItem.productId).stock}
-                            onChange={(e) => updateProductQuantity(cartItem.productId, e.target.valueAsNumber)}
-                        />{"  "}
+                            onChange={(e) =>
+                                updateProductQuantity(
+                                    cartItem.productId,
+                                    e.target.valueAsNumber
+                                )
+                            }
+                        />
                         / {getProduct(cartItem.productId).stock}
-                    </small> {"    "}
-                    <small>
+                    </small>
+                    <small className="col-3">
                         {cartItem.quantity * getProduct(cartItem.productId).price} Lei
-                    </small> {"    "}
+                    </small> 
 
-                    <button onClick={() => deleteProduct(cartItem.productId)}>
+                    <div 
+                    className="col-2 btn btn-danger"
+                    onClick={() => deleteProduct(cartItem.productId)}>
                         Delete product
-                    </button>
+                    </div>
 
                 </div>
             ))}
 
-            {cart.length > 0 ? <h3>Total: {getTotalPrice()} Lei</h3> : <p> No products in cart. </p>}
+            {cart.length > 0 ? <h3 className="fs-1 fw-bold">Total: {getTotalPrice()} Lei</h3> : <p> No products in cart. </p>}
 
         </div>
     );
